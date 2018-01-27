@@ -4,10 +4,13 @@ import java.io.File;
 import java.io.IOException;
 
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 
 public class FileManager {
 	
-	public static void setStatus(final boolean status) {
+	public static void setStatus(boolean status) {
+		Player player = null;
 		File ordner = new File("plugins//AFK");
 		File file = new File("plugins//AFK//Status.yml");
 		if(!ordner.exists()) {
@@ -30,6 +33,7 @@ public class FileManager {
 	}
 
 	public static boolean getStatus() {
+		Player player = null;
 		File ordner = new File("plugins//AFK");
 		File file = new File("plugins//AFK//Status.yml");
 		YamlConfiguration cfg = YamlConfiguration.loadConfiguration(file);
