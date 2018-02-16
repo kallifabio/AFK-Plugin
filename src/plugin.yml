@@ -1,5 +1,5 @@
 name: AFKPlugin
-main: de.kallifabio.afk.main.Main
+main: de.kallifabio.afk.main.AFK
 version: 1.3
 author: kallifabio
 

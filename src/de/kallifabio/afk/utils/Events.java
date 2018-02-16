@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
-import de.kallifabio.afk.main.Main;
+import de.kallifabio.afk.main.AFK;
 
 public class Events implements Listener {
 	
@@ -16,8 +16,8 @@ public class Events implements Listener {
 	@EventHandler
 	public void onAFKMove(final PlayerMoveEvent e) {
 		final Player p = e.getPlayer();
-		if(Main.isAFK) {
-			Main.isAFK = false;
+		if(AFK.isAFK) {
+			AFK.isAFK = false;
 			Bukkit.broadcastMessage(p.getDisplayName() + " §6ist wieder da: §9Hurra!");
 		}
 	}
@@ -25,8 +25,8 @@ public class Events implements Listener {
 	@EventHandler
 	public void onAFKInteract(final PlayerInteractEvent e) {
 		final Player p = e.getPlayer();
-		if(Main.isAFK) {
-			Main.isAFK = false;
+		if(AFK.isAFK) {
+			AFK.isAFK = false;
 			Bukkit.broadcastMessage(p.getDisplayName() + " §6ist wieder da: §9Hurra!");
 		}
 	}

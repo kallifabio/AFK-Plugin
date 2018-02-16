@@ -1,8 +1,6 @@
 package de.kallifabio.afk.utils;
 
 import java.io.File;
-import java.io.IOException;
-
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -17,51 +15,31 @@ public class ConfigManager {
 	static String messagefr = "§3FR ";
 	
 	public static void setDefaults() {
-		config.set("langague", langague);
-		config.set("message.de", messagede);
-		config.set("message.en", messageen);
-		config.set("message.fr", messagefr);
+		config.options().copyDefaults(true);
+		
+		config.addDefault("Langague", "DE");
+		
+		config.addDefault("Message.DE.On", "%player% &8ist jetzt &cAFK");
+		config.addDefault("Message.DE.Off", "%player% &8ist nicht mehr &cAFK");
+		
+		config.addDefault("Message.EN.On", "%player% &8is now &cAFK");
+		config.addDefault("Message.EN.Off", "%player% &8is not &cAFK");
+		
+		config.addDefault("Message.FR.On", messagefr);
+		config.addDefault("Message.FR.Off", messagefr);
+		
 		saveConfig();
-		config.getString("langague");
-		config.getString("message.de");
-		config.getString("message.en");
-		config.getString("message.fr");
-	}
-	
-	public static void setLangague() {
-		config.set("langague", langague);
-		saveConfig();
-	}
-	
-	public static String getLangague() {
-		return config.getString(langague);
-	}
-	
-	public static void setMessageDE() {
-		config.set("message.de", messagede);
-		saveConfig();
-	}
-	
-	public static String getMessageDE() {
-		return config.getString(messagede);
-	}
-	
-	public static void setMessageEN() {
-		config.set("message.en", messageen);
-		saveConfig();
-	}
-	
-	public static String getMessageEN() {
-		return config.getString(messageen);
-	}
-	
-	public static void setMessageFR() {
-		config.set("message.fr", messagefr);
-		saveConfig();
-	}
-	
-	public static String getMessageFR() {
-		return config.getString(messagefr);
+		
+		langague = config.getString("Langague");
+		
+		messagede = config.getString("Message.DE.On");
+		messagede = config.getString("Message.DE.Off");
+		
+		messageen = config.getString("Message.EN.On");
+		messageen = config.getString("Message.EN.Off");
+		
+		messagefr = config.getString("Message.FR.On");
+		messagefr = config.getString("Message.FR.Off");
 	}
 	
 	public static void saveConfig() {
