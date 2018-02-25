@@ -1,43 +1,32 @@
 package de.kallifabio.afk.main;
 
-import java.util.HashMap;
+import java.io.File;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.kallifabio.afk.command.afkCommand;
-import de.kallifabio.afk.utils.ConfigManager;
-import de.kallifabio.afk.utils.Events;
 
-public class AFK extends JavaPlugin implements Listener {
+public class AFK extends JavaPlugin {
 	
-	public static String langague;
-	public static String messagede;
-	public static String messageen;
-	public static String messagefr;
-	
-	public static String prefix = "§2AFK§3";
+	private static String prefix = "§3[§2AFK§3] ";
 	public static AFK instance;
 	public static boolean isAFK;
 	private CommandSender p;
-	//public static boolean canMove;
-	//public static HashMap<String, Location> playerLoc = new HashMap<>();
 	
 	@Override
 	public void onEnable() {
-		//onMoveListener();
-		ConfigManager.saveConfig();
-		ConfigManager.setDefaults();
-		//messagede = ConfigManager.
-		Bukkit.getConsoleSender().sendMessage(AFK.prefix + "Plugin§4--§aaktiviert");
+		loadConfig();
 		
 		instance = this;
 		
-		//Bukkit.getPluginManager().registerEvents(new Events(), this);
 		getCommand("afk").setExecutor(new afkCommand());
+		getCommand("afk-help").setExecutor(this);
+		System.out.println(" ");
+		Bukkit.getConsoleSender().sendMessage(AFK.prefix + "§3§lDas Plugin wurde mit der Version§8: §e" + AFK.getInstance().getDescription().getVersion() + "§3§l geladen");
+		System.out.println(" ");
 	}
 	
 	@Override
@@ -49,13 +38,24 @@ public class AFK extends JavaPlugin implements Listener {
 		return instance;
 	}
 	
-	public void onCommand(final String[] args) {
-	    if ((args[0].equalsIgnoreCase("/")) || (args[0].equalsIgnoreCase("/help"))) {
-	      p.sendMessage("§6Help AFK:");
+	public static String getPrefix() {
+		return prefix;
+	}
+	
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+	    if (cmd.getName().equalsIgnoreCase("afk-help")) {
+	    	sender.sendMessage("§8==========§6Help AFK:§8==========");
+	    	sender.sendMessage("§3/afk - AFK Modus aktiviert");
+	    	sender.sendMessage("§8==========§6Help AFK:§8==========");
 	    }
-	    p.sendMessage("§2Wenn /afk benutzt wurde und man sich bewegt schaltet es sich der AFK Modus aus");
-	    p.sendMessage("§3/afk-AFK Modus aktiviert");
-	    p.sendMessage("§3/unafk-AFK Modus deaktiviert");
-	  }
-
+		return false;
+	}
+	
+	private void loadConfig() {
+        File file = new File("plugins/" + getDescription().getName() + "/config.yml");
+        if (!file.exists()) {
+            saveDefaultConfig();
+        }
+    }
+	
 }

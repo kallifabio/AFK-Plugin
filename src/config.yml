@@ -1,0 +1,11 @@
+Language: 'DE'
+Messages:
+  DE:
+    OFF: '&f%player% &8ist nicht mehr &cAFK'
+    ON: '&f%player% &8ist jetzt &cAFK'
+  EN:
+    OFF: '&f%player% &8is not now &cAFK'
+    ON: '&f%player% &8is now &cAFK'
+  FR:
+    OFF: '&f%player% &8n'est plus &cAFK'
+    ON: '&f%player% &8est maintenant &cAFK'

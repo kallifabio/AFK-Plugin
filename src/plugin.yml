@@ -1,9 +1,10 @@
 name: AFKPlugin
 main: de.kallifabio.afk.main.AFK
-version: 1.3
+version: 1.4
 author: kallifabio
 
 commands:
+  afk-help:
   afk: 
     description: MainCommand
     usage: 

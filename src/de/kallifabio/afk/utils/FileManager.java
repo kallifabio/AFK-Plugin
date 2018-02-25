@@ -7,12 +7,14 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
+import de.kallifabio.afk.main.AFK;
+
 public class FileManager {
 	
 	public static void setStatus(boolean status) {
 		Player player = null;
-		File ordner = new File("plugins//AFK");
-		File file = new File("plugins//AFK//Status.yml");
+		File ordner = new File("plugins/" + AFK.getInstance().getDescription().getName());
+		File file = new File("plugins/" + AFK.getInstance().getDescription().getName() + "/Status.yml");
 		if(!ordner.exists()) {
 			ordner.mkdir();
 		}
@@ -34,8 +36,8 @@ public class FileManager {
 
 	public static boolean getStatus() {
 		Player player = null;
-		File ordner = new File("plugins//AFK");
-		File file = new File("plugins//AFK//Status.yml");
+		File ordner = new File("plugins/" + AFK.getInstance().getDescription().getName());
+		File file = new File("plugins/" + AFK.getInstance().getDescription().getName() + "/Status.yml");
 		YamlConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 		if(!ordner.exists()) {
 			ordner.mkdir();
