@@ -6,13 +6,13 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 public class ConfigManager {
 	
-	public static final File configFile = new File("plugins//AFK//config.yml");
+	public static final File configFile = new File("plugins/AFK/config.yml");
 	public static final FileConfiguration config = YamlConfiguration.loadConfiguration(configFile);
 	
-	static String langague = "de ";
-	static String messagede = "§4DE ";
-	static String messageen = "§cEN ";
-	static String messagefr = "§3FR ";
+	static String langague = "de";
+	static String messagede = "Â§4DE";
+	static String messageen = "Â§cEN";
+	static String messagefr = "Â§3FR";
 	
 	public static void setDefaults() {
 		config.options().copyDefaults(true);

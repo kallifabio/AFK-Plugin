@@ -14,20 +14,20 @@ public class Events implements Listener {
 	//public boolean isAFK;
 	
 	@EventHandler
-	public void onAFKMove(final PlayerMoveEvent e) {
+	public void onPlayerMove(final PlayerMoveEvent e) {
 		final Player p = e.getPlayer();
 		if(AFK.isAFK) {
 			AFK.isAFK = false;
-			Bukkit.broadcastMessage(p.getDisplayName() + " ง6ist wieder da: ง9Hurra!");
+			Bukkit.broadcastMessage(p.getDisplayName() + " ยง6ist wieder da: ยง9Hurra!");
 		}
 	}
 	
 	@EventHandler
-	public void onAFKInteract(final PlayerInteractEvent e) {
+	public void onPlayerInteract(final PlayerInteractEvent e) {
 		final Player p = e.getPlayer();
 		if(AFK.isAFK) {
 			AFK.isAFK = false;
-			Bukkit.broadcastMessage(p.getDisplayName() + " ง6ist wieder da: ง9Hurra!");
+			Bukkit.broadcastMessage(p.getDisplayName() + " ยง6ist wieder da: ยง9Hurra!");
 		}
 	}
 

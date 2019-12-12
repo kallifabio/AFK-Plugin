@@ -14,7 +14,7 @@ public class FileManager {
 	public static void setStatus(boolean status) {
 		Player player = null;
 		File ordner = new File("plugins/" + AFK.getInstance().getDescription().getName());
-		File file = new File("plugins/" + AFK.getInstance().getDescription().getName() + "/Status.yml");
+		File file = new File("plugins/" + AFK.getInstance().getDescription().getName() + "/status.yml");
 		if(!ordner.exists()) {
 			ordner.mkdir();
 		}
@@ -37,7 +37,7 @@ public class FileManager {
 	public static boolean getStatus() {
 		Player player = null;
 		File ordner = new File("plugins/" + AFK.getInstance().getDescription().getName());
-		File file = new File("plugins/" + AFK.getInstance().getDescription().getName() + "/Status.yml");
+		File file = new File("plugins/" + AFK.getInstance().getDescription().getName() + "/status.yml");
 		YamlConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 		if(!ordner.exists()) {
 			ordner.mkdir();
