@@ -1,0 +1,10 @@
+name: AFKPlugin
+main: de.kallifabio.afk.AFK
+version: 1.4
+author: kallifabio
+
+commands:
+  afk:
+    description:
+  afk-help:
+    description:
